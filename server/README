@@ -1,0 +1,4 @@
+# Web App
+## Guidelines
+1. Create conda environment from the file `flask-env.txt` using `conda create --name flask --file conda-env.txt`
+2. Activate the environment `conda activate flask`
