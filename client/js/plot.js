@@ -10,8 +10,8 @@ function getGraph(name, element) {
     request.send();
 }
 
-getGraph("bar", "plot1");
-getGraph("cat", "plot2");
-getGraph("lion", "plot3");
-getGraph("lion", "plot4");
-getGraph("lion", "plot5");
+getGraph("gps", "plot1");
+getGraph("smooth", "plot2");
+//getGraph("outlier", "plot3");
+getGraph("predict", "plot4");
+//getGraph("predict", "plot5");
