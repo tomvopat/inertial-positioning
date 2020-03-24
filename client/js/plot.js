@@ -6,7 +6,7 @@ function getGraph(name, element) {
         let plot = JSON.parse(this.response);
         Plotly.plot(element, plot, {});
     };
-    request.open("GET", `http://localhost:5000/plot?selected=${name}`, true);
+    request.open("GET", `http://aws.tomvopat.com:5000/plot?selected=${name}`, true);
     request.send();
 }
 
