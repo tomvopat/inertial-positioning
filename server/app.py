@@ -11,13 +11,11 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-uri = "mongodb://localhost/"
-client = MongoClient(uri)
-
+uri = "mongodb://positioning:positioning@localhost/positioning"
+db = MongoClient(uri)
 
 def plot_gps_fix(feature):
-    db = client['gps_smooth']
-    collection = db['files']
+    collection = db['gps_smooth']
     df = pd.DataFrame(collection.find_one({'_id': feature})['data'])
     data = go.Figure()
     data.add_trace(go.Scattermapbox(lon=df['longitude'], lat=df['latitude'], mode='lines', name='original'))
@@ -54,8 +52,7 @@ def plot_gps_fix(feature):
 
 
 def plot_smooth_acc(feature):
-    db = client['gps_smooth']
-    collection = db['files']
+    collection = db['gps_smooth']
     df = pd.DataFrame(collection.find_one({'_id':feature})['data'])
     data = go.Figure()
     data.add_trace(go.Scatter(x=df.index, y=df['x (m/s2)'], mode='lines', name='original'))
@@ -68,8 +65,7 @@ def plot_outlier():
     return create_plot()
 
 def plot_predict():
-    db = client['gps_predict']
-    collection = db['files']
+    collection = db['gps_predict']
     df = pd.DataFrame(collection.find_one({'_id': 'file'})['data'])
     data = go.Figure()
     data.add_trace(go.Scattermapbox(lon=df['real_lon'], lat=df['real_lat'], mode='lines', name='original'))
