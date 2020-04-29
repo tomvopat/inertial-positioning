@@ -11,9 +11,8 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-uri = "mongodb://positioning:positioning@localhost/"
-client = MongoClient(uri)
-db = client.positioning
+client = MongoClient("mongodb://positioning:positioning@aws.tomvopat.com:27017/positioning")
+db = client["positioning"]
 
 def plot_gps_fix(feature):
     collection = db['gps_smooth']
