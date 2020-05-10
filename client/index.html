@@ -16,14 +16,13 @@
   <!-- Custom styles for this template -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
 <body id="page-top">
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Inertial Positioning</a>
@@ -38,17 +37,21 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#preprocessing">Preprocessing</a>
           </li>
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link js-scroll-trigger" href="#outlier">Outlier Detection</a>-->
-<!--          </li>-->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#outliers">Outliers</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#prediction">Prediction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#results">Results</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-primary text-white">
     <div class="container text-center">
       <h1>Inertial Positioning</h1>
@@ -56,6 +59,7 @@
     </div>
   </header>
 
+  <!-- BODY -->
   <section id="about">
     <div class="container">
       <div class="row">
@@ -69,6 +73,8 @@
           </ul>
         </div>
       </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -79,30 +85,37 @@
           <h2>Preprocessing</h2>
           <p class="lead">There are three main challenges when dealing with sensor data in this context: The frequency of the different sensors is usually different and contains a lot of missing data; sensors accumulate various type of noises, which can be difficult to deal with; and finally, data from the sensors is collected relative to the position of the phone.</p>
           <p class="lead">To deal with the different frequencies, we explore the distribution of frequencies for the accelerometer data, select the value that best suits the observations, and finally re-sample the different sensors, dealing with missing data by interpolating the values. Then, the denoising section of the preprocessing is carried out by applying a filter to the synchronized data. The relative position can be generalized by rotating the entries using the gyroscope data as a baseline.</p>
-          <div class="row">
-            <div class="col-md-12" id="plot1"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-12" id="plot2"></div>
-          </div>
         </div>
+      </div>
+      <div id="preprocessing-content" class="row row-content">
+        <div class="col-md-10 mx-auto">
+          <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <button type="button" id="preprocessing-button" class="btn btn-primary btn-lg content-button hide" data-content="preprocessing-content">Show more</button>
       </div>
     </div>
   </section>
 
-<!--  <section id="outlier">-->
-<!--    <div class="container">-->
-<!--      <div class="row">-->
-<!--        <div class="col-lg-12 mx-auto">-->
-<!--          <h2>Outlier Detection</h2>-->
-<!--          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>-->
-<!--          <div class="row">-->
-<!--            <div class="col-md-12" id="plot3"></div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
+  <section id="outliers">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mx-auto">
+          <h2>Outliers</h2>
+          <p class="lead">
+            Once in a while the location deducted by device (especially in the case of inferring location using other methods than GPS) is outlying the plausible are by hudreds of meters or kilometers. We aim to detect such outliers in order to provide better and more reliable input for upcoming model. Outliers have few common that we can use for detection with logistic regression model. This model yields testing accuracy 88%. Common properties of outliers are:
+          </p>
+          <ul>
+            <li>long-distance jump</li>
+            <li>short time</li>
+            <li>significant direction change</li>
+            <li>low location accuracy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="prediction" class="bg-light">
     <div class="container">
@@ -113,22 +126,35 @@
           <p class="lead">Data modelling task is a regression type. A next point is predicted by sensor data during a timestep. Location points could be taken from GPS but it uses battery life a lot.  Also, there are significant inaccuracies in GPS especially indoors spaces such as shopping centers or metro. That is why experimenting possibilities of using sensor data instead of GPS would benefit positioning in many ways.</p>
           <p class="lead">Two models are used. A one for predicting difference in latitude and another for longitude. The models used in the plot below takes as an input a single row of predicting variables. At this point only preprocessed accelerometer data was used. The hidden layer consist of a single LSTM block with a default sigmoid activation function. The output layer produces a single continuous output value, which represents the difference between a previous point and a next point.</p>
           <p class="lead">It can be seen from the plot below that the model is able to find the direction of the real path with a really little training. There are naturally significant inaccuracies since the model is quite simple and has been trained with a small amount of data so far. </p>
-          <div class="row">
-            <!--<div class="col-md-6 col-xs-12" id="plot4"></div>
-            <div class="col-md-6 col-xs-12" id="plot5"></div>-->
-            <div class="col-md-12" id="plot4"></div>
-          </div>
+        </div>
+      </div>
+      <div id="prediction-content" class="row row-content">
+        <div class="col-md-10 mx-auto">
+          <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <button type="button" id="prediction-button" class="btn btn-primary btn-lg content-button show" data-content="prediction-content">Show more</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mx-auto">
+          <h2>Results</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Inertial Positioning 2020</p>
     </div>
-    <!-- /.container -->
   </footer>
 
   <!-- Bootstrap core JavaScript -->
@@ -141,6 +167,8 @@
   <!-- Custom JavaScript for this theme -->
   <script src="js/scrolling-nav.js"></script>
 
+  <!-- plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="js/plot.js"></script>
 </body>
 </html>

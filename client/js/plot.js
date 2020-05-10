@@ -1,17 +1,28 @@
 "use strict";
 
+const url = "http://localhost:5000";
+
 function getGraph(name, element) {
     let request = new XMLHttpRequest();
     request.onload = function() {
         let plot = JSON.parse(this.response);
         Plotly.plot(element, plot, {});
     };
-    request.open("GET", `http://aws.tomvopat.com:5000/plot?selected=${name}`, true);
+    request.open("GET", `${url}/plot?selected=${name}`, true);
     request.send();
 }
 
-getGraph("gps", "plot1");
-getGraph("smooth", "plot2");
-//getGraph("outlier", "plot3");
-getGraph("predict", "plot4");
-//getGraph("predict", "plot5");
+$(document).ready(function() {
+    $(".content-button").on("click", function() {
+        let contentId = $(this).attr("data-content");
+        $(`#${contentId}`).slideToggle(400);
+        $(this).toggleClass("btn-primary btn-secondary");
+        if($(this).hasClass("btn-secondary")) {
+            $(this).html("Hide");
+        } else {
+            $(this).html("Show more");
+        }
+    });
+});
+
+//getGraph("gps", "plot1");
