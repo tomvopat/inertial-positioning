@@ -13,6 +13,11 @@ function getGraph(name, element) {
 }
 
 $(document).ready(function() {
+    $(".example-button.btn-outline-primary").each(function () {
+        let example = $(this).attr("data-example");
+        $("#" + example).hide();
+    });
+
     $(".content-button").on("click", function() {
         let contentId = $(this).attr("data-content");
         $(`#${contentId}`).slideToggle(400);
@@ -22,6 +27,21 @@ $(document).ready(function() {
         } else {
             $(this).html("Show more");
         }
+    });
+
+    $(".example-button").on("click", function() {
+        let mainId = $(this).closest(".row-content").attr("id");
+
+        let activeExample = $("#" + mainId + " .example-button.btn-primary").attr("data-example");
+        let newExample = $(this).attr("data-example");
+        if(activeExample === newExample) {
+            return;
+        }
+        $("#" + newExample).show();
+        $("#" + activeExample).hide();
+
+        $("#" + mainId + " .example-button.btn-primary").toggleClass("btn-primary btn-outline-primary");
+        $(this).toggleClass("btn-primary btn-outline-primary");
     });
 });
 

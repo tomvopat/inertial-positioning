@@ -88,8 +88,44 @@
         </div>
       </div>
       <div id="preprocessing-content" class="row row-content">
-        <div class="col-md-10 mx-auto">
-          <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+        <div class="container">
+          <div class="row justify-content-center mb-4">
+            <div class="btn-group btn-group-lg" role="group" aria-label="Example switch">
+              <button type="button" class="btn btn-primary example-button" data-example="example1">#1</button>
+              <button type="button" class="btn btn-outline-primary example-button" data-example="example2">#2</button>
+              <button type="button" class="btn btn-outline-primary example-button" data-example="example3">#3</button>
+            </div>
+          </div>
+          <div id="example1" class="row">
+            <div class="col-md-10 pt-2 mx-auto">
+              <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+            </div>
+            <div class="col-md-10 pt-2 mx-auto">
+              <p>
+                1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
+              </p>
+            </div>
+          </div>
+          <div id="example2" class="row">
+            <div class="col-md-10 pt-2 mx-auto">
+              <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+            </div>
+            <div class="col-md-10 pt-2 mx-auto">
+              <p>
+                2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
+              </p>
+            </div>
+          </div>
+          <div id="example3" class="row">
+            <div class="col-md-10 pt-2 mx-auto">
+              <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+            </div>
+            <div class="col-md-10 pt-2 mx-auto">
+              <p>
+                3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row justify-content-center mt-4">
@@ -104,7 +140,7 @@
         <div class="col-lg-12 mx-auto">
           <h2>Outliers</h2>
           <p class="lead">
-            Once in a while the location deducted by device (especially in the case of inferring location using other methods than GPS) is outlying the plausible are by hudreds of meters or kilometers. We aim to detect such outliers in order to provide better and more reliable input for upcoming model. Outliers have few common that we can use for detection with logistic regression model. This model yields testing accuracy 88%. Common properties of outliers are:
+            Once a while the location deducted by a device (especially in the case of inferring location using other methods than GPS) is outlying the plausible are by hundreds of meters or kilometres. We aim to detect such outliers to provide better and more reliable input for the upcoming model. Outliers have few common that we can use for detection with a logistic regression model. This model yields a testing accuracy of 88%. Common properties of outliers are:
           </p>
           <ul>
             <li>long-distance jump</li>
@@ -128,10 +164,36 @@
           <p class="lead">It can be seen from the plot below that the model is able to find the direction of the real path with a really little training. There are naturally significant inaccuracies since the model is quite simple and has been trained with a small amount of data so far. </p>
         </div>
       </div>
-      <div id="prediction-content" class="row row-content">
-        <div class="col-md-10 mx-auto">
-          <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+      <div id="prediction-content" class="row row-content justify-content-center">
+        <div class="container">
+          <div class="row justify-content-center mb-4">
+            <div class="btn-group btn-group-lg" role="group" aria-label="Example switch">
+              <button type="button" class="btn btn-primary example-button" data-example="example4">#1</button>
+              <button type="button" class="btn btn-outline-primary example-button" data-example="example5">#2</button>
+            </div>
+          </div>
+          <div id="example4" class="row">
+            <div class="col-md-10 pt-2 mx-auto">
+              <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+            </div>
+            <div class="col-md-10 pt-2 mx-auto">
+              <p>
+                4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
+              </p>
+            </div>
+          </div>
+          <div id="example5" class="row">
+            <div class="col-md-10 pt-2 mx-auto">
+              <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
+            </div>
+            <div class="col-md-10 pt-2 mx-auto">
+              <p>
+                5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
       </div>
       <div class="row justify-content-center mt-4">
         <button type="button" id="prediction-button" class="btn btn-primary btn-lg content-button show" data-content="prediction-content">Show more</button>
