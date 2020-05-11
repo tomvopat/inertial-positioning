@@ -2,22 +2,14 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <title>Inertial Positioning</title>
-
-  <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+  <title>Inertial Positioning</title>
 </head>
 
 <body id="page-top">
@@ -63,7 +55,7 @@
   <section id="about">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mx-auto">
+        <div class="col-md-10">
           <h2>About the project</h2>
           <p class="lead">Using the GPS with mobile phones is very battery consuming. And that’s the reason why users don’t want to use GPS. However, GPS is still the best and easiest way to locate the location of the user. In this project we try to develop model which leverage inertial sensors of mobile phones to keep or even increase the location accuracy when reducing the GPS frequency. Usually location data also contains inaccurate location points and thus, another goal is to find way to detect these possible outliers.</p>
           <ul>
@@ -81,7 +73,7 @@
   <section id="preprocessing" class="bg-light">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mx-auto">
+        <div class="col-md-10">
           <h2>Preprocessing</h2>
           <p class="lead">There are three main challenges when dealing with sensor data in this context: The frequency of the different sensors is usually different and contains a lot of missing data; sensors accumulate various type of noises, which can be difficult to deal with; and finally, data from the sensors is collected relative to the position of the phone.</p>
           <p class="lead">To deal with the different frequencies, we explore the distribution of frequencies for the accelerometer data, select the value that best suits the observations, and finally re-sample the different sensors, dealing with missing data by interpolating the values. Then, the denoising section of the preprocessing is carried out by applying a filter to the synchronized data. The relative position can be generalized by rotating the entries using the gyroscope data as a baseline.</p>
@@ -89,7 +81,7 @@
       </div>
       <div id="preprocessing-content" class="row row-content">
         <div class="container">
-          <div class="row justify-content-center mb-4">
+          <div class="row mb-4">
             <div class="btn-group btn-group-lg" role="group" aria-label="Example switch">
               <button type="button" class="btn btn-primary example-button" data-example="example1">#1</button>
               <button type="button" class="btn btn-outline-primary example-button" data-example="example2">#2</button>
@@ -97,30 +89,30 @@
             </div>
           </div>
           <div id="example1" class="row">
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
             </div>
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <p>
                 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
               </p>
             </div>
           </div>
           <div id="example2" class="row">
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
             </div>
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <p>
                 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
               </p>
             </div>
           </div>
           <div id="example3" class="row">
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
             </div>
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <p>
                 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
               </p>
@@ -128,7 +120,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center mt-4">
+      <div class="row mt-4">
         <button type="button" id="preprocessing-button" class="btn btn-primary btn-lg content-button hide" data-content="preprocessing-content">Show more</button>
       </div>
     </div>
@@ -137,7 +129,7 @@
   <section id="outliers">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mx-auto">
+        <div class="col-md-6">
           <h2>Outliers</h2>
           <p class="lead">
             Once a while the location deducted by a device (especially in the case of inferring location using other methods than GPS) is outlying the plausible are by hundreds of meters or kilometres. We aim to detect such outliers to provide better and more reliable input for the upcoming model. Outliers have few common that we can use for detection with a logistic regression model. This model yields a testing accuracy of 88%. Common properties of outliers are:
@@ -149,6 +141,9 @@
             <li>low location accuracy</li>
           </ul>
         </div>
+        <div id="outliers-plot" class="col-md-4">
+
+        </div>
       </div>
     </div>
   </section>
@@ -156,7 +151,7 @@
   <section id="prediction" class="bg-light">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mx-auto">
+        <div class="col-md-10">
           <h2>Prediction</h2>
           <p class="lead">In this project, we’re using Long-Short-Term-Memory networks to predict a route based on sensor data collected by mobile devices. LSTM is a type of Recurrent Neural Networks (RNN), which are able to handle sequential data. Location and sensor data are sequential time-series data in which the next point is dependent from the previous one. </p>
           <p class="lead">Data modelling task is a regression type. A next point is predicted by sensor data during a timestep. Location points could be taken from GPS but it uses battery life a lot.  Also, there are significant inaccuracies in GPS especially indoors spaces such as shopping centers or metro. That is why experimenting possibilities of using sensor data instead of GPS would benefit positioning in many ways.</p>
@@ -164,29 +159,29 @@
           <p class="lead">It can be seen from the plot below that the model is able to find the direction of the real path with a really little training. There are naturally significant inaccuracies since the model is quite simple and has been trained with a small amount of data so far. </p>
         </div>
       </div>
-      <div id="prediction-content" class="row row-content justify-content-center">
+      <div id="prediction-content" class="row row-content">
         <div class="container">
-          <div class="row justify-content-center mb-4">
+          <div class="row mb-4">
             <div class="btn-group btn-group-lg" role="group" aria-label="Example switch">
               <button type="button" class="btn btn-primary example-button" data-example="example4">#1</button>
               <button type="button" class="btn btn-outline-primary example-button" data-example="example5">#2</button>
             </div>
           </div>
           <div id="example4" class="row">
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
             </div>
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <p>
                 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
               </p>
             </div>
           </div>
           <div id="example5" class="row">
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <img src="static/sinusoid.png" alt="placeholder" style="max-width: 100%">
             </div>
-            <div class="col-md-10 pt-2 mx-auto">
+            <div class="col-md-8 pt-2">
               <p>
                 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque lorem quis diam tincidunt, quis vulputate purus lobortis. Etiam eget turpis in nunc egestas consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pharetra eleifend lectus ut dictum. Cras lorem lacus, imperdiet at mauris quis, congue pulvinar lorem. Curabitur luctus, quam at congue aliquam, augue tortor commodo est, a efficitur diam dolor at orci. Nulla ex turpis, mollis fringilla ultrices a, finibus sit amet mi. Phasellus quis sem sed sapien sagittis blandit. Pellentesque ac nibh suscipit, vestibulum augue eu, cursus lectus. Sed feugiat auctor mauris, eu vestibulum sem. In pharetra ut lectus id aliquam.
               </p>
@@ -195,7 +190,7 @@
         </div>
       </div>
       </div>
-      <div class="row justify-content-center mt-4">
+      <div class="row mt-4">
         <button type="button" id="prediction-button" class="btn btn-primary btn-lg content-button show" data-content="prediction-content">Show more</button>
       </div>
     </div>
@@ -204,7 +199,7 @@
   <section id="results">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 mx-auto">
+        <div class="col-md-10">
           <h2>Results</h2>
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
         </div>
@@ -219,18 +214,13 @@
     </div>
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="vendor/jquery-3.5.1.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery.easing.min.js"></script>
+  <script src="vendor/plotly-1.54.1.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom JavaScript for this theme -->
   <script src="js/scrolling-nav.js"></script>
-
-  <!-- plotly -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="js/plot.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

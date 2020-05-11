@@ -1,6 +1,7 @@
 "use strict";
 
 const url = "http://localhost:5000";
+//const url = "http://aws.tomvopat.com:5000";
 
 function getGraph(name, element) {
     let request = new XMLHttpRequest();
@@ -11,6 +12,19 @@ function getGraph(name, element) {
     request.open("GET", `${url}/plot?selected=${name}`, true);
     request.send();
 }
+
+// outliers graph
+Plotly.newPlot(
+    "outliers-plot",
+    [{
+        values: [23382, 3189],
+        labels: ["Correctly classified", "Misclassified"],
+        type: "pie",
+        hoverinfo: "label"
+    }],
+    {
+        showlegend: false,
+    });
 
 $(document).ready(function() {
     $(".example-button.btn-outline-primary").each(function () {
