@@ -96,9 +96,20 @@ def plot_compare(feature):
     c_lat = (max(df['latitude']) + min(df['latitude']))/2
 
     data.update_layout(
-        margin ={'l':0,'t':0,'b':0,'r':0},
-        mapbox = {'style': "stamen-terrain",'zoom': -1.4*np.log(max(r_lon, r_lat)) + 8.683547386731036,
-                  'center':{'lon':c_lon, 'lat':c_lat}})
+        margin = {
+            'l': 0,
+            't': 0,
+            'b': 0,
+            'r': 0
+        },
+        mapbox = {
+            'style': "stamen-terrain",
+            'zoom': -1.4*np.log(max(r_lon, r_lat)) + 8.683547386731036,
+            'center': {
+                'lon': c_lon,
+                'lat': c_lat
+            }
+        })
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
 
