@@ -1,16 +1,43 @@
 "use strict";
 
 const url = "http://localhost:5000";
-//const url = "http://aws.tomvopat.com:5000";
+
+let loadedPlots = new Set();
 
 function getGraph(name, element) {
+    $(document).ready(function () {
+        $("#" + element).html("<div class=\"loader\"></div>");
+    });
     let request = new XMLHttpRequest();
     request.onload = function() {
         let plot = JSON.parse(this.response);
+        document.getElementById(element).innerHTML = "";
         Plotly.plot(element, plot, {});
     };
     request.open("GET", `${url}/plot?selected=${name}`, true);
     request.send();
+}
+
+function drawPlot(name) {
+    if(loadedPlots.has(name)) return;
+    else loadedPlots.add(name);
+
+    switch(name) {
+        case "example1":
+            getGraph("compare1", name + "-content");
+            break;
+        case "example2":
+            getGraph("compare2", name + "-content");
+            break;
+        case "example3":
+            getGraph("compare3", name + "-content");
+            break;
+        case "example4":
+        case "example5":
+        default:
+            getGraph("bar", name + "-content");
+            break;
+    }
 }
 
 // outliers graph
@@ -41,6 +68,7 @@ $(document).ready(function() {
         } else {
             $(this).html("Show more");
         }
+        $(`#${contentId} .btn-group .btn-primary`).trigger("click");
     });
 
     $(".example-button").on("click", function() {
@@ -48,6 +76,8 @@ $(document).ready(function() {
 
         let activeExample = $("#" + mainId + " .example-button.btn-primary").attr("data-example");
         let newExample = $(this).attr("data-example");
+        drawPlot(newExample);
+
         if(activeExample === newExample) {
             return;
         }
@@ -58,5 +88,3 @@ $(document).ready(function() {
         $(this).toggleClass("btn-primary btn-outline-primary");
     });
 });
-
-//getGraph("gps", "plot1");
