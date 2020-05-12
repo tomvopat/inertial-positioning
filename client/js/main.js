@@ -1,6 +1,7 @@
 "use strict";
 
-const url = "http://localhost:5000";
+//const url = "http://localhost:5000";
+const url = "http://aws.tomvopat.com:5000";
 
 let loadedPlots = new Set();
 
