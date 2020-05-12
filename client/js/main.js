@@ -24,17 +24,18 @@ function drawPlot(name) {
     else loadedPlots.add(name);
 
     switch(name) {
-        case "example1":
+        case "example4":
             getGraph("compare1", name + "-content");
             break;
-        case "example2":
+        case "example5":
             getGraph("compare2", name + "-content");
             break;
-        case "example3":
+        case "example6":
             getGraph("compare3", name + "-content");
             break;
-        case "example4":
-        case "example5":
+        case "example1":
+        case "example2":
+        case "example3":
         default:
             getGraph("bar", name + "-content");
             break;
