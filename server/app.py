@@ -82,6 +82,25 @@ def plot_predict():
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
 
+def plot_compare(feature):
+    collection = db['comparison']
+    df = pd.DataFrame(collection.find_one({'_id':feature})['data'])
+    data = go.Figure()
+    data.add_trace(go.Scattermapbox(lon=df['longitude'],lat=df['latitude'],mode='lines', name='Original'))
+    data.add_trace(go.Scattermapbox(lon=df['lstm_lon'],lat=df['lstm_lat'],mode='lines', name='LSTM Prediction'))
+    data.add_trace(go.Scattermapbox(lon=df['k_lon'],lat=df['k_lat'],mode='lines', name='Kalman Filter'))
+
+    r_lon = max(df['longitude']) - min(df['longitude'])
+    c_lon = (max(df['longitude']) + min(df['longitude']))/2
+    r_lat = max(df['latitude']) - min(df['latitude'])
+    c_lat = (max(df['latitude']) + min(df['latitude']))/2
+
+    data.update_layout(
+        margin ={'l':0,'t':0,'b':0,'r':0},
+        mapbox = {'style': "stamen-terrain",'zoom': -1.4*np.log(max(r_lon, r_lat)) + 8.683547386731036,
+                  'center':{'lon':c_lon, 'lat':c_lat}})
+    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
 
 def create_plot():
     N = 40
@@ -112,6 +131,12 @@ def getPlot():
         return plot_outlier()
     if feature == "predict":
         return plot_predict()
+    if feature == "compare1":
+        return plot_compare("file_1")
+    if feature == "compare2":
+        return plot_compare("file_2")
+    if feature == "compare3":
+        return plot_compare("file_3")
 
     return create_plot()
 
