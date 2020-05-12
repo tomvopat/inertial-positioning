@@ -12,6 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 client = MongoClient("mongodb://positioning:positioning@localhost/positioning")
+#client = MongoClient("mongodb://positioning:positioning@aws.tomvopat.com/positioning")
 db = client["positioning"]
 
 def plot_gps_fix(feature):
@@ -113,6 +114,21 @@ def plot_compare(feature):
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
 
+def plot_preprocess():
+    db = client['positioning']
+    collection = db['preprocess']
+    df = pd.DataFrame(collection.find_one({'_id':'file'})['data'])
+    data = go.Figure()
+    data.add_trace(go.Scatter(x=df['time'], y=df['x (m/s2)'], mode='lines', name='Raw data'))
+    data.add_trace(go.Scatter(x=df['time'], y=df['Fix'], mode='lines', name='Pre-processed Data'))
+    data.update_layout(
+        title='Accelerometer pre-processing using Madgwick algorithm',
+        xaxis_title='Time',
+        yaxis_title='Accelerometer axis'
+       )
+    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON
+
 def create_plot():
     N = 40
     x = np.linspace(0, 1, N)
@@ -148,6 +164,8 @@ def getPlot():
         return plot_compare("file_2")
     if feature == "compare3":
         return plot_compare("file_3")
+    if feature == "preprocess":
+        return plot_preprocess()
 
     return create_plot()
 
