@@ -24,6 +24,9 @@ function drawPlot(name) {
     else loadedPlots.add(name);
 
     switch(name) {
+        case "example1":
+            getGraph("preprocess", name + "-content");
+            break;
         case "example4":
             getGraph("compare1", name + "-content");
             break;
@@ -33,9 +36,6 @@ function drawPlot(name) {
         case "example6":
             getGraph("compare3", name + "-content");
             break;
-        case "example1":
-        case "example2":
-        case "example3":
         default:
             getGraph("bar", name + "-content");
             break;
