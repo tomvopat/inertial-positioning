@@ -18,6 +18,27 @@ html, body {
     min-width: 100%;
 }
 
+ul {
+    font-size: large;
+}
+
+/*.loud-list::after {
+    background-color: #007bff;
+    content: "";
+    opacity: .3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}*/
+
+.loud-list ul li {
+    margin: 1em 0;
+    font-size: x-large;
+}
+
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
